@@ -23,7 +23,12 @@ Vorkenntnisse in JavaScript sind wünschenswert aber nicht zwingend erforderlich
 
 Informationen:
 
+Talk:
+
+  "React und OpenLayers: Vorstellung und Anwendungsbeispiel react-geo"
+
 react-geo:
+
 - Beispiele und Dokumentation befinden sich im Aufbau und sind unter
   https://terrestris.github.io/react-geo/ erreichbar
 - react-geo ist als NPM-Paket unter dem Namen @terrestris/react-geo verfügbar
