@@ -7,14 +7,15 @@
 React ist derzeit eines der meistgenutzten Frameworks zur Entwicklung von
 Web-UI-Komponenten. OpenLayers ist eine weit verbreitete Bibliothek, um
 webbasierte Kartenanwendungen zu erstellen. In diesem Vortrag werden wir die
-junge Open Source Bibliothek react-geo (https://www.npmjs.com/package/@terrestris/react-geo)
-vorstellen, welche die Vorteile beider Bibliotheken verbindet.
+junge Open Source Bibliothek react-geo vorstellen, welche die Vorteile beider
+Bibliotheken verbindet.
 
 Nach einer kurzen Vorstellung von react und OpenLayers werden wir die Merkmale
-sowie einige Komponenten von react-geo anhand von Beispielen demonstrieren. Eine
-Präsentation einer react-geo Applikation sowie ein Vergleich mit anderen alternativen
-Kartenframeworks runden den Vortrag ab.
+und Komponenten von react-geo demonstrieren. Eine Präsentation einer react-geo
+Applikation sowie ein Vergleich mit Alternativen runden den Vortrag ab.
+
+Co-Autor Marc Jansen (jansen@terrestris.de)
 
 ## Status
-  * Submitted: Nein
+  * Submitted: Ja
   * Angenommen: Nein
