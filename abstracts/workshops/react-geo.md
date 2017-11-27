@@ -1,5 +1,10 @@
 # react-geo - mapping mit React
 
+## Leitung: André Henn, Kai Volland
+
+## Abstract
+react-geo - mapping mit React
+
 Dieser Workshop vermittelt die Grundlagen der aktuellsten Version von react-geo
 und bietet einen Einstieg in die Entwicklung eines WebGIS-Frontends mit React.
 
@@ -28,3 +33,7 @@ react: https://reactjs.org/
 AntDesign: http://ant.design/
 
 OpenLayers: http://openlayers.org/
+
+## Status
+  * Submitted: Nein
+  * Angenommen: Nein
