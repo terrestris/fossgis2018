@@ -23,9 +23,9 @@ Vorkenntnisse in JavaScript sind wünschenswert aber nicht zwingend erforderlich
 
 Informationen:
 
-Talk:
+Zugehöriger Talk:
 
-  "React und OpenLayers: Vorstellung und Anwendungsbeispiel react-geo"
+  [React und OpenLayers: Vorstellung und Anwendungsbeispiel react-geo](https://github.com/terrestris/fossgis2018/blob/master/abstracts/talks/react-plus-openlayers-vorstellung-und-anwendungsbeispiele-react-geo.md)
 
 react-geo:
 
