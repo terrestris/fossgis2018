@@ -11,5 +11,5 @@ Die GeoServer-Community arbeitet laufend an Erweiterungen und Verbesserungen der
 Dieser Vortrag widmet sich insbesondere den Entwicklungen der jüngeren Vergangenheit. Dabei wird das Ziel verfolgt einen möglichst breiten Überblick über die (neuen) Möglichkeiten zu schaffen statt auf die Details einzelner Features einzugehen.
 
 ## Status
-  * Submitted: Nein
+  * Submitted: Ja
   * Angenommen: Nein
