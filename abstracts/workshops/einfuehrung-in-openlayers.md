@@ -21,5 +21,5 @@ Je nach Interesse der Teilnehmer und verfügbarer Zeit werden wir Schwerpunkte s
 Zielgruppe sind alle Interessierten, die die Möglichkeiten von OpenLayers kennen lernen wollen. JavaScript-Kenntnisse sind sicherlich von Vorteil, jedoch zum Verfolgen und Nachvollziehen der Übungen keine zwingende Pflicht.
 
 ## Status
-  * Submitted: Nein
+  * Submitted: Ja
   * Angenommen: Nein

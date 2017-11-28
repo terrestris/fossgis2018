@@ -9,5 +9,5 @@ OpenLayers ist eine sehr bekannte und verbreitete Open-Source-JavaScript-Bibliot
 Der Vortrag, der von OpenLayers Kernentwicklern gehalten wird, wird zunächst den aktuellen Stand der Bibliothek vorstellen. Anschließend werden wir zukünftige Entwicklungsschwerpunkte beleuchten.
 
 ## Status
-  * Submitted: Nein
+  * Submitted: Ja
   * Angenommen: Nein
