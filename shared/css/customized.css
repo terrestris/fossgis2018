@@ -199,3 +199,20 @@ span.nope {
 .reveal section pre code {
     font-weight: normal;
 }
+
+#teampic {
+  height: 300px;
+  margin: auto;
+  background-image: url(../img/terrestris-team-focus.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  filter: grayscale(100%);
+  opacity: 0.75;
+  transition: all 1.5s ease-in-out 0s;
+}
+
+#teampic:hover {
+  filter: none;
+  opacity: 1;
+}
