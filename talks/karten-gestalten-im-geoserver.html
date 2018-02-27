@@ -55,7 +55,7 @@
           <h3>SLD, CSS und MBStyles</h3>
           <br />
           <p>
-            <small>Johannes Weskamm,<br />terrestris GmbH &amp Co. KG</small>
+            <small>Johannes Weskamm &amp; Anna Rieger <br />terrestris GmbH &amp Co. KG</small>
           </p>
           <hr />
           <p>
@@ -89,6 +89,30 @@
                   <li>Softwareentwickler @terrestris</li>
                   <li>Hauptverantwortlicher <a href="https://ows.terrestris.de">ows.terrestris.de</a></li>
                   <li>Kernentwickler GeoExt, SHOGun, react-geo et.al.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div style="clear:both"></div>
+        </section>
+
+        <section id="about-author-johannes-weskamm">
+          <h2>Anna Rieger</h2>
+          <div class="split-info">
+            <div class="part" style="width:35%">
+              <img src="https://www.placecage.com/300/300" class="plain" width="200"/><br />
+              <small>
+                <a class="email" href="mailto:rieger@terrestris.de">rieger@terrestris.de</a><br />
+                <a class="github" href="https://github.com/annarieger/">@annarieger</a><br />
+              </small><br />
+            </div>
+            <div class="part"  style="width:60%">
+              <div class="enumeration">
+                <ul>
+                  <li>Dipl.-Ing. &amp; M. Sc.</li>
+                  <li>Softwareentwickler @terrestris</li>
+                  <li>Frontend (GUI)</li>
+                  <li>Kartographie</li>
                 </ul>
               </div>
             </div>
@@ -132,6 +156,18 @@
           <p>
             Details gerne am terrestris Stand
           </p>
+        </section>
+
+        <section>
+          <pre><code data-trim>
+cd /tmp
+git clone git@github.com:terrestris/docker-geoserver.git && cd docker-geoserver
+git checkout styling-examples # probably fetch
+docker build -t terrestris/geoserver:styling --no-cache .
+docker run -p 8080:8080 terrestris/geoserver:styling
+http://localhost:8080/geoserver &&
+          </code></pre>
+<a href="http://localhost:8080/geoserver/www/all.html">Alle 4 zusamme</a>
         </section>
 
         <section id="thanks-questions">
