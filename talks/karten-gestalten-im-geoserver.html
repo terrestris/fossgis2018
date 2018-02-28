@@ -160,14 +160,15 @@
 
         <section>
           <pre><code data-trim>
-cd /tmp
-git clone git@github.com:terrestris/docker-geoserver.git && cd docker-geoserver
-git checkout styling-examples # probably fetch
-docker build -t terrestris/geoserver:styling --no-cache .
-docker run -p 8080:8080 terrestris/geoserver:styling
-http://localhost:8080/geoserver &&
+$ cd /tmp && \
+  git clone git@github.com:terrestris/docker-geoserver.git && \
+  cd docker-geoserver && \
+  git checkout styling-examples && \
+  docker build -t terrestris/geoserver:styling --no-cache . && \
+  docker run -d -p 8080:8080 terrestris/geoserver:styling
           </code></pre>
-<a href="http://localhost:8080/geoserver/www/all.html">Alle 4 zusamme</a>
+          <a href="http://localhost:8080/geoserver">http://localhost:8080/geoserver</a><br />
+          <a href="http://localhost:8080/geoserver/www/all.html">Alle 4 zusammen</a>
         </section>
 
         <section id="thanks-questions">
