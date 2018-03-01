@@ -37,7 +37,6 @@
 
     <div class="reveal">
 
-
       <!-- BEGIN OF SLIDES -->
       <div class="slides">
 
@@ -55,7 +54,7 @@
           <h3>SLD, CSS und MBStyles</h3>
           <br />
           <p>
-            <small>Johannes Weskamm &amp; Anna Rieger <br />terrestris GmbH &amp Co. KG</small>
+            <small>Johannes Weskamm &amp; Anna Rieger <br />terrestris GmbH &amp; Co. KG</small>
           </p>
           <hr />
           <p>
@@ -67,7 +66,9 @@
           <h2>Gliederung</h2>
           <ul>
             <li>Über&hellip;</li>
-            <li>TODO</li>
+            <li>Karten stylen - aber wie?</li>
+            <li>Beispiele</li>
+            <li>Fazit</li>
           </ul>
         </section>
 
@@ -75,7 +76,7 @@
           <h2>Johannes Weskamm</h2>
           <div class="split-info">
             <div class="part" style="width:35%">
-              <img src="https://www.placecage.com/200/200" class="plain" width="200"/><br />
+              <img src="../shared/img/jw.jpg" class="plain" width="250"/><br />
               <small>
                 <a class="email" href="mailto:weskamm@terrestris.de">weskamm@terrestris.de</a><br />
                 <a class="github" href="https://github.com/weskamm/">@weskamm</a><br />
@@ -88,7 +89,7 @@
                   <li>Diplom-Geograph</li>
                   <li>Softwareentwickler @terrestris</li>
                   <li>Hauptverantwortlicher <a href="https://ows.terrestris.de">ows.terrestris.de</a></li>
-                  <li>Kernentwickler GeoExt, SHOGun, react-geo et.al.</li>
+                  <li>Kernentwickler GeoExt, SHOGun, react-geo</li>
                 </ul>
               </div>
             </div>
@@ -96,11 +97,11 @@
           <div style="clear:both"></div>
         </section>
 
-        <section id="about-author-johannes-weskamm">
+        <section id="about-author-anna-rieger">
           <h2>Anna Rieger</h2>
           <div class="split-info">
             <div class="part" style="width:35%">
-              <img src="https://www.placecage.com/300/300" class="plain" width="200"/><br />
+              <img src="../shared/img/ar.jpg" class="plain" width="250"/><br />
               <small>
                 <a class="email" href="mailto:rieger@terrestris.de">rieger@terrestris.de</a><br />
                 <a class="github" href="https://github.com/annarieger/">@annarieger</a><br />
@@ -109,10 +110,10 @@
             <div class="part"  style="width:60%">
               <div class="enumeration">
                 <ul>
-                  <li>Dipl.-Ing. &amp; M. Sc.</li>
+                  <li>Dipl.-Ing. Vermessungswesen &amp; M. Sc. Geomatik</li>
                   <li>Softwareentwickler @terrestris</li>
                   <li>Frontend (GUI)</li>
-                  <li>Kartographie</li>
+                  <li>Kernentwickler react-geo</li>
                 </ul>
               </div>
             </div>
@@ -158,17 +159,554 @@
           </p>
         </section>
 
-        <section>
+        <section id="geoserver-styling-docker-setup">
           <pre><code data-trim>
-$ cd /tmp && \
-  git clone git@github.com:terrestris/docker-geoserver.git && \
-  cd docker-geoserver && \
-  git checkout styling-examples && \
-  docker build -t terrestris/geoserver:styling --no-cache . && \
-  docker run -d -p 8080:8080 terrestris/geoserver:styling
+          $ cd /tmp && \
+            git clone git@github.com:terrestris/docker-geoserver.git && \
+            cd docker-geoserver && \
+            git checkout styling-examples && \
+            docker build -t terrestris/geoserver:styling --no-cache . && \
+            docker run -d -p 8080:8080 terrestris/geoserver:styling
           </code></pre>
           <a href="http://localhost:8080/geoserver">http://localhost:8080/geoserver</a><br />
           <a href="http://localhost:8080/geoserver/www/all.html">Alle 4 zusammen</a>
+        </section>
+
+        <section id="how-to-style-maps-title">
+          <h2>Karte stylen - aber wie?</h2>
+          <hr />
+          <h4>Übersicht über existierende Ansätze </h4>
+        </section>
+
+        <section id="how-to-style-maps-overview">
+
+          <section id="style-listing">
+            <ul>
+              <li>SLD</li>
+              <li>YSLD</li>
+              <li>CSS</li>
+              <li>MBStyle</li>
+            </ul>
+          </section>
+
+          <section id="sld-style">
+            <h2>SLD</h2>
+            <hr/>
+            <div class="split-sld">
+              <div class="part" style="width:62%">
+                <pre><code style="font-size:12px" data-trim>
+                  <?xml version="1.0" encoding="UTF-8"?>
+                  <sld:StyledLayerDescriptor
+                    xmlns="http://www.opengis.net/sld"
+                    xmlns:sld="http://www.opengis.net/sld"
+                    xmlns:gml="http://www.opengis.net/gml"
+                    xmlns:ogc="http://www.opengis.net/ogc"
+                    version="1.0.0">
+                    <sld:NamedLayer>
+                      <sld:Name>bundeslaender-sld</sld:Name>
+                      <sld:UserStyle>
+                        <sld:Name>bundeslaender-sld</sld:Name>
+                        <sld:FeatureTypeStyle>
+                          <sld:Name>name</sld:Name>
+                          <sld:Rule>
+                            <sld:PolygonSymbolizer>
+                              <sld:Fill>
+                                <sld:CssParameter name="fill">#000080</sld:CssParameter>
+                              </sld:Fill>
+                              <sld:Stroke>
+                                <sld:CssParameter name="stroke">#FFFFFF</sld:CssParameter>
+                              </sld:Stroke>
+                            </sld:PolygonSymbolizer>
+                          </sld:Rule>
+                          <sld:VendorOption name="ruleEvaluation">first</sld:VendorOption>
+                        </sld:FeatureTypeStyle>
+                      </sld:UserStyle>
+                    </sld:NamedLayer>
+                  </sld:StyledLayerDescriptor>
+                </code></pre>
+              </div>
+              <div class="part" style="width:33%">
+                <ul>
+                  <li><b>S</b>tyled <b>L</b>ayer <b>D</b>escriptor</li>
+                  <li>OGC Standard</li>
+                  <li>v1.1.0</li>
+                  <li>XML basiert</li>
+                </ul>
+              </div>
+            </div>
+            <div style="clear:both"></div>
+          </section>
+
+          <section id="ysld-style">
+            <h2>YSLD</h2>
+            <hr/>
+            <div class="split-ysld">
+              <div class="part" style="width:35%">
+                <pre><code style="font-size:16px" data-trim>
+                  name: bundeslaender-ysld
+                  feature-styles:
+                  - name: name
+                    rules:
+                    - scale: [min, max]
+                      symbolizers:
+                      - polygon:
+                          stroke-color: '#FFFFFF'
+                          stroke-width: 1
+                          fill-color: '#000080'
+                </code></pre>
+              </div>
+              <div class="part" style="width:60%">
+                <ul>
+                  <li>Boundless Server Composer</li>
+                  <li>einfache Lesbarkeit</li>
+                  <li>kompakt & flexibel</li>
+                  <li>Kompatibel mit SLD</li>
+                  <li>YAML basiert</li>
+                  <li>GeoServer Extension</li>
+                </ul>
+              </div>
+            </div>
+            <div style="clear:both"></div>
+          </section>
+
+          <section id="css">
+            <h2>CSS</h2>
+            <hr/>
+            <div class="split-css">
+              <div class="part" style="width:35%">
+                <pre><code style="font-size:16px" data-trim>
+                  * {
+                    fill: #000080;
+                    stroke: #FFFFFF;
+                    stroke-width: 1;
+                  }
+                </code></pre>
+              </div>
+              <div class="part" style="width:60%">
+                <ul>
+                  <li>gute Lesbarkeit</li>
+                  <li>kompakt & flexibel</li>
+                  <li>Kompatibel mit SLD</li>
+                  <li>CSS basiert</li>
+                  <li>GeoServer Extension</li>
+                </ul>
+              </div>
+            </div>
+            <div style="clear:both"></div>
+          </section>
+
+          <section id="mbstyle">
+            <h2>MBStyle</h2>
+            <hr/>
+            <div class="split-mbstyle">
+              <div class="part" style="width:40%">
+                <pre><code style="font-size:14px" data-trim>
+                  {
+                    "version": 8,
+                    "name": "bundeslaender-mbstyle",
+                    "layers": [
+                      {
+                        "id": "polygon-outline",
+                        "type": "fill",
+                        "paint": {
+                          "fill-outline-color": "white",
+                          "fill-color": "#000080"
+                        }
+                      }
+                    ]
+                  }
+                </code></pre>
+              </div>
+              <div class="part" style="width:55%">
+                <ul>
+                  <li>Mapbox Style Specification</li>
+                  <li>gute Lesbarkeit</li>
+                  <li>sehr umfangreiche API</li>
+                  <li>Kompatibel mit SLD</li>
+                  <li>JSON basiert</li>
+                  <li>GeoServer Extension</li>
+                </ul>
+              </div>
+            </div>
+            <div style="clear:both"></div>
+          </section>
+        </section>
+
+        <section id="examples">
+          <h2>Beispiele</h2>
+          <hr />
+        </section>
+
+        <section id="example-data">
+          <h3>Randbedingungen</h3>
+          <hr/>
+          <div class="split-info">
+            <div class="part" style="width:30%">
+              <img src="../shared/img/style-talk/de_states_nostyle.png" class="plain" width="250"/><br />
+            </div>
+            <div class="part" style="width:65%; font-size:.7em;">
+              <table >
+                <thead>
+                  <tr>
+                    <th>Regel</th>
+                    <th>Attribut</th>
+                    <th>Klassen</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="vertical-align:middle;">Bevölkerungsdichte</td>
+                    <td style="vertical-align:middle;">{dense}</td>
+                    <td>
+                      <ul>
+                        <li><133.2</li>
+                        <li><183.2</li>
+                        <li><294.2</li>
+                        <li><524.5</li>
+                        <li>>524.5</li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Bundeslandname</td>
+                    <td>{GEN}</td>
+                    <td>Bayern / Rest</td>
+                  </tr>
+                  <tr>
+                    <td>Labels</td>
+                    <td>{kuerzel}</td>
+                    <td>alle</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div style="clear:both"></div>
+        </section>
+
+        <section id="sld-example">
+          <h3>Bundesländer mit SLD</h3>
+          <hr/>
+          <div>
+            <pre><code style="font-size:14px" data-trim>
+              <?xml version="1.0" encoding="UTF-8"?>
+              <sld:StyledLayerDescriptor xmlns:sld="http://www.opengis.net/sld"
+               xmlns="http://www.opengis.net/sld"
+               xmlns:gml="http://www.opengis.net/gml"
+               xmlns:ogc="http://www.opengis.net/ogc"
+               version="1.0.0">
+                <sld:NamedLayer>
+                  <sld:Name>complex-mbstyles</sld:Name>
+                  <sld:UserStyle>
+                    <sld:Name>complex-mbstyles</sld:Name>
+                    <sld:FeatureTypeStyle>
+                      <sld:Name>polygon-outline</sld:Name>
+                      <sld:Title>MBStyle polygon-outline</sld:Title>
+                      <sld:Abstract>Generated for terrestris:bundeslaender</sld:Abstract>
+                      <sld:SemanticTypeIdentifier>POLYGON</sld:SemanticTypeIdentifier>
+                      <sld:Rule>
+                        <sld:Name>polygon-outline</sld:Name>
+                        <sld:PolygonSymbolizer uom="http://www.opengeospatial.org/se/units/pixel">
+                          <sld:Fill>
+                            <sld:CssParameter name="fill">
+                              <ogc:Function name="Categorize">
+                                <ogc:PropertyName>dense</ogc:PropertyName>
+                                <ogc:Literal>#1A9641</ogc:Literal>
+                                <ogc:Literal>0</ogc:Literal>
+                                <ogc:Literal>#1A9641</ogc:Literal>
+                                <ogc:Literal>133.2</ogc:Literal>
+                                <ogc:Literal>#A6D96A</ogc:Literal>
+                                <ogc:Literal>183.2</ogc:Literal>
+                                <ogc:Literal>#FFFFC0</ogc:Literal>
+                                <ogc:Literal>294.2</ogc:Literal>
+                                <ogc:Literal>#FDAE61</ogc:Literal>
+                                <ogc:Literal>524.5</ogc:Literal>
+                                <ogc:Literal>#D7191C</ogc:Literal>
+                                <ogc:Literal>succeeding</ogc:Literal>
+                              </ogc:Function>
+                            </sld:CssParameter>
+                            <sld:CssParameter name="fill-opacity">0.75</sld:CssParameter>
+                          </sld:Fill>
+                          <sld:Stroke>
+                            <sld:CssParameter name="stroke">#FFFFFF</sld:CssParameter>
+                            <sld:CssParameter name="stroke-opacity">0.75</sld:CssParameter>
+                          </sld:Stroke>
+                        </sld:PolygonSymbolizer>
+                      </sld:Rule>
+                    </sld:FeatureTypeStyle>
+                    <sld:FeatureTypeStyle>
+                      <sld:Name>bayern-spezial</sld:Name>
+                      <sld:Title>MBStyle bayern-spezial</sld:Title>
+                      <sld:Abstract>Generated for terrestris:bundeslaender</sld:Abstract>
+                      <sld:SemanticTypeIdentifier>POLYGON</sld:SemanticTypeIdentifier>
+                      <sld:Rule>
+                        <sld:Name>bayern-spezial</sld:Name>
+                        <ogc:Filter>
+                          <ogc:PropertyIsEqualTo>
+                            <ogc:PropertyName>GEN</ogc:PropertyName>
+                            <ogc:Literal>Bayern</ogc:Literal>
+                          </ogc:PropertyIsEqualTo>
+                        </ogc:Filter>
+                        <sld:PolygonSymbolizer uom="http://www.opengeospatial.org/se/units/pixel">
+                          <sld:Fill>
+                            <sld:CssParameter name="fill">#000000</sld:CssParameter>
+                          </sld:Fill>
+                          <sld:Stroke>
+                            <sld:CssParameter name="stroke">#FFFFFF</sld:CssParameter>
+                          </sld:Stroke>
+                        </sld:PolygonSymbolizer>
+                      </sld:Rule>
+                    </sld:FeatureTypeStyle>
+                    <sld:FeatureTypeStyle>
+                      <sld:Name>label</sld:Name>
+                      <sld:Title>MBStyle label</sld:Title>
+                      <sld:Abstract>Generated for terrestris:bundeslaender</sld:Abstract>
+                      <sld:SemanticTypeIdentifier>ANY</sld:SemanticTypeIdentifier>
+                      <sld:Rule>
+                        <sld:Name>label</sld:Name>
+                        <sld:TextSymbolizer uom="http://www.opengeospatial.org/se/units/pixel">
+                          <sld:Label>
+                            <ogc:Function name="StringTransform">
+                              <ogc:PropertyName>kuerzel</ogc:PropertyName>
+                              <ogc:Literal>none</ogc:Literal>
+                            </ogc:Function>
+                          </sld:Label>
+                          <sld:Font>
+                            <sld:CssParameter name="font-family">Dialog</sld:CssParameter>
+                            <sld:CssParameter name="font-size">14</sld:CssParameter>
+                            <sld:CssParameter name="font-style">normal</sld:CssParameter>
+                            <sld:CssParameter name="font-weight">normal</sld:CssParameter>
+                          </sld:Font>
+                          <sld:LabelPlacement>
+                            <sld:PointPlacement>
+                              <sld:AnchorPoint>
+                                <sld:AnchorPointX>0.5</sld:AnchorPointX>
+                                <sld:AnchorPointY>0.5</sld:AnchorPointY>
+                              </sld:AnchorPoint>
+                              <sld:Displacement>
+                                <sld:DisplacementX>0</sld:DisplacementX>
+                                <sld:DisplacementY>
+                                  <ogc:Mul>
+                                    <ogc:Literal>-1</ogc:Literal>
+                                    <ogc:Literal>0</ogc:Literal>
+                                  </ogc:Mul>
+                                </sld:DisplacementY>
+                              </sld:Displacement>
+                            </sld:PointPlacement>
+                          </sld:LabelPlacement>
+                          <sld:Halo>
+                            <sld:Radius>1</sld:Radius>
+                            <sld:Fill>
+                              <sld:CssParameter name="fill">#FFFFFF</sld:CssParameter>
+                            </sld:Fill>
+                          </sld:Halo>
+                          <sld:Fill>
+                            <sld:CssParameter name="fill" />
+                          </sld:Fill>
+                          <sld:VendorOption name="repeat">250</sld:VendorOption>
+                          <sld:VendorOption name="conflictResolution">true</sld:VendorOption>
+                          <sld:VendorOption name="graphic-resize">none</sld:VendorOption>
+                          <sld:VendorOption name="partials">true</sld:VendorOption>
+                          <sld:VendorOption name="graphic-margin">0</sld:VendorOption>
+                          <sld:VendorOption name="spaceAround">2.0</sld:VendorOption>
+                          <sld:VendorOption name="labelObstacle">true</sld:VendorOption>
+                        </sld:TextSymbolizer>
+                      </sld:Rule>
+                    </sld:FeatureTypeStyle>
+                  </sld:UserStyle>
+                </sld:NamedLayer>
+              </sld:StyledLayerDescriptor>
+            </code></pre>
+          </div>
+        </section>
+
+        <section id="ysld-example">
+          <h3>Bundesländer mit YSLD</h3>
+          <hr/>
+          <div>
+            <pre><code style="font-size:14px" data-trim>
+              TODO
+            </code></pre>
+          </div>
+        </section>
+
+        <section id="css-example">
+          <h3>Bundesländer mit CSS</h3>
+          <hr/>
+          <div>
+            <pre><code style="font-size:14px" data-trim>
+              * {
+                fill-opacity: 0.75;
+                stroke: #ffffff;
+                stroke-width: 1;
+                label: [kuerzel];
+                label-anchor: 0.5 0.5;
+                font-family: Dialog;
+                font-size: 14px;
+                font-fill: #333333;
+                halo-color: #ffffff;
+                halo-radius: 1;
+              }
+
+              [dense<133.2] {
+                fill: #1a9641;
+              }
+              [dense>=133.2] [dense<183.2] {
+                fill: #a6d96a;
+              }
+              [dense>=183.2] [dense<294.2] {
+                fill: #ffffc0;
+              }
+              [dense>=294.2] [dense<524.5] {
+                fill: #fdae61;
+              }
+              [dense>=524.5] {
+                fill: #d7191c;
+              }
+
+              [GEN='Bayern'] {
+                fill: #000000;
+                fill-opacity: 1;
+              }
+            </code></pre>
+          </div>
+        </section>
+
+        <section id="mbstyle-example">
+          <h3>Bundesländer mit MBStyle</h3>
+          <hr/>
+          <div>
+            <pre><code style="font-size:14px" data-trim>
+              {
+                "version": 8,
+                "name": "bundeslaender",
+                "sources": {
+                  "terrestris:bundeslaender" : {
+                    "type": "vector",
+                    "tiles": [
+                      "http://localhost:8080/geoserver/gwc/service/tms/1.0.0/terrestris:bundeslaender@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf"
+                    ]
+                  }
+                },
+                "layers": [
+                  {
+                    "id": "polygon-outline",
+                    "source": "terrestris:bundeslaender",
+                    "source-layer": "bundeslaender",
+                    "type": "fill",
+                    "paint": {
+                      "fill-color": {
+                        "property": "dense",
+                        "type": "interval",
+                        "stops": [
+                          [0, "#1a9641"],
+                          [133.2, "#a6d96a"],
+                          [183.2, "#ffffc0"],
+                          [294.2, "#fdae61"],
+                          [524.5, "#d7191c"]
+                        ]
+                      },
+                      "fill-outline-color": "white",
+                      "fill-opacity": 0.75
+                    }
+                  },
+                  {
+                    "id": "bayern-spezial",
+                    "source": "terrestris:bundeslaender",
+                    "source-layer": "bundeslaender",
+                    "filter": ["==", "GEN", "Bayern"],
+                    "type": "fill",
+                    "paint": {
+                      "fill-color": "black",
+                      "fill-outline-color": "white"
+                    }
+                  },
+                  {
+                    "id": "label",
+                    "source": "terrestris:bundeslaender",
+                    "source-layer": "bundeslaender",
+                    "type": "symbol",
+                    "layout": {
+                      "text-field": "{kuerzel}",
+                      "text-font": ["Dialog"],
+                      "text-size": 14,
+                      "text-anchor": "center"
+                    },
+                    "paint": {
+                      "text-color": "333333",
+                      "text-halo-color": "#ffffff",
+                      "text-halo-width": 1
+                    }
+                  }
+                ]
+              }
+            </code></pre>
+          </div>
+        </section>
+
+        <section id="comparision">
+          <h3>Ergebnisse</h3>
+          <hr/>
+          <div class="split-info">
+            <div class="part" style="width:30%">
+              <img src="../shared/img/style-talk/de_states_styled.png" class="plain" width="300"/><br />
+            </div>
+            <div class="part" style="width:65%; font-size:.7em;">
+            <p>Ergebnis ist zwar gleich für alle Stile, aber...</p>
+            <table class="fragment" data-fragment-index="2" style="font-size=.85em" >
+              <thead>
+                <tr>
+                  <th>Stil</th>
+                  <th>Zeilen</th>
+                  <th>Anmerkung</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="vertical-align:middle;">SLD</td>
+                  <td style="vertical-align:middle;">123</td>
+                  <td>
+                    <ul>
+                      <li>unübersichtlich</li>
+                      <li>lange Bezeichnungen</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>YSLD</td>
+                  <td>TODO</td>
+                  <td>
+                    <ul>
+                      <li>TODO</li>
+                      <li>TODO</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="vertical-align:middle;">CSS</td>
+                  <td style="vertical-align:middle;">33</td>
+                  <td>
+                    <ul>
+                      <li>sehr kompakt</li>
+                      <li>leicht verständliche Syntax für CSSler</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="vertical-align:middle;">MBStyle</td>
+                  <td style="vertical-align:middle;">63</td>
+                  <td>
+                    <ul>
+                      <li>mittel groß</li>
+                      <li>dank JSON Struktur leicht zu lesen</li>
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+          </div>
+          <div style="clear:both"></div>
         </section>
 
         <section id="thanks-questions">
@@ -238,7 +776,8 @@ $ cd /tmp && \
               hljs.initHighlightingOnLoad();
             }
           }
-        ]
+        ],
+        history: true
       });
     </script>
   </body>

@@ -198,6 +198,8 @@ span.nope {
 
 .reveal section pre code {
     font-weight: normal;
+    line-height: 1.2;
+    white-space: pre-wrap;
 }
 
 #teampic {
