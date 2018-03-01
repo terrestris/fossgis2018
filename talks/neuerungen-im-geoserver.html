@@ -43,15 +43,13 @@
 
       <section id="start"
       data-background-image="../shared/img/geoserver-mark.png"
-      data-background-size="auto 90%">
+      data-background-size="auto 80%">
       <p>&nbsp;</p>
     </section>
     <section id="title"
     data-background-image="../shared/img/geoserver-mark-filter.svg"
-    data-background-size="auto 90%">
-    <h1>Neues im GeoServer</h1>
-    <br />
-    <br />
+    data-background-size="auto 80%">
+    <h1>Neuerungen im GeoServer</h1>
     <p>
       <small>Nils B&uuml;hner, terrestris GmbH &amp; Co. KG</small>
     </p>
@@ -65,7 +63,7 @@
     <h2>Gliederung</h2>
     <ul>
       <li>Über&hellip;</li>
-      <li>GeoServer</li>
+      <li>GeoServer Basics</li>
       <li>Ausgewählte Änderungen</li>
     </ul>
   </section>
@@ -74,22 +72,22 @@
     <h2>Nils B&uuml;hner</h2>
     <div class="split-info">
       <div class="part" style="width:35%">
-        <img src="../shared/img/nb.png" class="plain" width="200"/><br />
+        <img src="../shared/img/nb.png" class="plain" width="200"/>
+        <img src="../shared/img/gs-certificate.png" class="plain" width="200"/>
         <small>
           <a class="email" href="mailto:buehner@terrestris.de">buehner@terrestris.de</a><br />
-          <a class="github" href="https://github.com/buehner/">@buehner</a><br />
-        </small><br />
+          <a class="github" href="https://github.com/buehner/">@buehner</a>
+        </small>
       </div>
       <div class="part"  style="width:60%">
         <div class="enumeration">
           <ul>
             <li>Diplom-Informatiker</li>
             <li>Entwickler @terrestris</li>
-            <li>Java (Spring, Hibernate)</li>
+            <li>Java (Spring, Hibernate), JavaScript</li>
             <li>Kernentwickler SHOGun</li>
             <li>Webtechnologien</li>
-            <li>GeoServer Certified Whatever</li>
-            <li><span style="color: darkred; font-weight: bold">✘</span> Kernentwickler GeoServer</li>
+            <li>GeoServer Certification (GS399)</li>
           </ul>
         </div>
       </div>
@@ -151,7 +149,7 @@
           <br/>für Geodaten</li>
           <li>Standards des <a href="http://www.opengeospatial.org/">OGC</a>
             <br />
-            <small>(z.B. WMS, WFS(-T), WPS)</small>
+            <small>(z.B. WMS, WFS(-T), WCS, WPS)</small>
           </li>
           <li>flexibel und erweiterbar</li>
           <li>gut dokumentiert (<a href="http://docs.geoserver.org/stable/user/">user</a>/<a href="http://docs.geoserver.org/stable/developer/">dev</a>)
@@ -199,24 +197,162 @@
         </small>
       </section>
 
+      <section>
+        <img src="../shared/img/gs_release_schedule.jpg" class="plain">
+        <small>Quelle:
+          <br/><a href="https://www.slideshare.net/geosolutions/state-of-geoserver-21geoservernodeopts2">https://www.slideshare.net/geosolutions/state-of-geoserver-21geoservernodeopts2</a>
+        </small>
+      </section>
+
     </section>
 
     <section id="geoserver">
       <h2>Änderungen…</h2>
       <ul>
-        <li>… seit und inkl. v2.12 (17.10.2017)</li>
+        <li>seit v2.11.1 (Mai 2017) …</li>
+        <li>… bis v2.12.2 (Januar 2018)</li>
         <!-- am 23.03.2017 (einen Tag nach DKs talk) ist 2.11 erschienen, welches er bereits abgefrühstückt hat -->
+        <li>Fokus auf Stable-Releases</li>
         <li>Bugfixes</li>
         <li>Securityfixes</li>
         <li>Features</li>
-        <li>Extensions / Plugins</li>
+        <li>Extensions / Plugins / Community Module</li>
       </ul>
     </section>
 
     <section>
-      http://blog.geoserver.org/2017/10/17/geoserver-2-12-0-released/
+      <h2>v2.11.1<small>(Mai 2017)</small></h2>
 
-      http://blog.geoserver.org/2018/02/22/geoserver-2-13-beta-released/
+      <section>
+        <ul>
+          <li>Security: Brute force attack prevention<br />
+            <img src="../shared/img/auth_brute_force.png" class="plain" width="200">
+          </li>
+          <li>Community module: Mapbox Styling</li>
+          <li>Feature: NetCDF Output Format (GetCoverage)</li>
+          <li>Bugfixes, z.B.
+            <ul>
+              <li>REST: HTTP-PUT, um Workspace anzulegen</li>
+              <li>GWC</li>
+              <li>GUI</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+    </section>
+
+    <section>
+      <h2>v2.11.2<small>(Juli 2017)</small></h2>
+
+      <section>
+        <ul>
+          <li>GetLegendGraphic: Anzahl getroffener Features Legenden-Label</li>
+          <ul>
+            <li><code>...&legend_options=countMatched:true</code><br />
+            <img src="../shared/img/gs_legend_feature_counts.png" class="plain"></li>
+          </ul>
+          <li>Reprojektion von Geometrien bei WMS GetFeatureInfo, wenn <i>info_format=GML</i></li>
+          <li>Viele kleine Bugfixes</li>
+        </ul>
+      </section>
+
+    </section>
+
+    <section>
+      <h2>v2.12.0<small>(Oktober 2017)</small></h2>
+
+      <section>
+        <h4>REST API Migration</h4><br />
+        <ul>
+          <li>Spring MVC statt Restlet</li>
+          <li>Swagger als Doku: <a href="http://docs.geoserver.org/latest/en/api/">http://docs.geoserver.org/latest/en/api/</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <img src="../shared/img/gs-rest-api-docs.png" class="plain" width="50%">
+      </section>
+
+      <section>
+          Neue Datenquelle: Cascading WMTS<br /><br />
+          <img src="../shared/img/gs_cascading_wmts.png" class="plain" width="50%">
+      </section>
+
+      <section>
+        <h4>Neue labeling features</h4>
+        <ul>
+          <li><i>vendor options</i> für:</li>
+          <ul>
+            <li>Durchgestrichener Text</li>
+            <li>Abstände zwischen Zeichen und Wörtern</li>
+            <li>gebogene/curved labels (LinePlacement)</li>
+            <li>labeling an Polygongrenzen (repetition/offsets)</li>
+          </ul>
+        </ul>
+      </section>
+
+      <section>
+        <h4>Neue CSS features</h4><br />
+        <ul>
+          <li>Code-Vervollständigung in GUI</li>
+          <li>Lesbarkeit: <i>[@sd < 1M]</i> statt <i>[@scale < 1000000]</i></li>
+          <li>LessCSS color functions: <i>Darken</i>, <i>Lighten</i>, <i>Saturate</i></li>
+          <li>Einfacherere Verwendung von Variablen</li>
+          <li>Deutlich schnellere Übersetzung von CSS zu äquivalentem SLD</li>
+        </ul>
+      </section>
+
+      <section>
+          <img src="../shared/img/gs_css_features.png" class="plain">
+      </section>
+
+      <section>
+        <h4>Neue Community Module</h4><br />
+        <ul>
+          <li>Amazon S3 GeoTiff</li>
+          <li>Status Monitoring (Ressourcennutzung, Statistiken)</li>
+          <li>OpenSearch für das Earth Observation Protokoll</li>
+        </ul>
+      </section>
+
+    </section>
+
+    <section>
+      <h2>v2.12.1<small>(November 2017)</small></h2>
+
+      <section>
+        <ul>
+          <li>Migration der User/Group/Role REST Models von geofence zu restconfig (core)</li>
+          <li>Viele kleine Bugfixes</li>
+          <ul>
+            <li>REST API CORS Unterstützung</li>
+            <li>YSLD ColorMap fix</li>
+            <li>GWC Seed Form fix</li>
+            <li>uvm...</li>
+          </ul>
+        </ul>
+      </section>
+
+    </section>
+
+    <section>
+      <h2>v2.12.2<small>(Januar 2018)</small></h2>
+
+      <section>
+        <ul>
+          <li>WPS Anfragen unterstützen CDATA</li>
+          <li>CSS Ausdrücke mit Einheiten</li>
+          <li>Bugfixes:</li>
+          <ul>
+            <li>Importer plugin: Shape file mit Leerzeichen in Attributnamen</li>
+            <li>WFS filter encoding Problem gelöst</li>
+            <li>GUI beim Anlegen von LayerGroup</li>
+            <li>viele kleine fixes in Community Modulen</li>
+          </ul>
+        </ul>
+      </section>
+
     </section>
 
     <section id="thanks-questions">
