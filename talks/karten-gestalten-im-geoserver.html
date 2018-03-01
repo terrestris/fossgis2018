@@ -332,6 +332,318 @@
           </section>
         </section>
 
+        <section id="examples">
+          <h2>Beispiele</h2>
+          <hr />
+        </section>
+
+        <section id="example-data">
+          <h3>Randbedingungen</h3>
+          <hr/>
+          <div class="split-info">
+            <div class="part" style="width:30%">
+              <img src="../shared/img/style-talk/de_states_nostyle.png" class="plain" width="250"/><br />
+            </div>
+            <div class="part" style="width:65%; font-size:.7em;">
+              <table >
+                <thead>
+                  <tr>
+                    <th>Regel</th>
+                    <th>Attribut</th>
+                    <th>Klassen</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="vertical-align:middle;">Bevölkerungsdichte</td>
+                    <td style="vertical-align:middle;">{dense}</td>
+                    <td>
+                      <ul>
+                        <li><133.2</li>
+                        <li><183.2</li>
+                        <li><294.2</li>
+                        <li><524.5</li>
+                        <li>>524.5</li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Bundeslandname</td>
+                    <td>{GEN}</td>
+                    <td>Bayern / Rest</td>
+                  </tr>
+                  <tr>
+                    <td>Labels</td>
+                    <td>{kuerzel}</td>
+                    <td>alle</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div style="clear:both"></div>
+        </section>
+
+        <section id="sld-example">
+          <h3>Bundesländer mit SLD</h3>
+          <hr/>
+          <div>
+            <pre><code style="font-size:14px" data-trim>
+              <?xml version="1.0" encoding="UTF-8"?>
+              <sld:StyledLayerDescriptor xmlns:sld="http://www.opengis.net/sld"
+               xmlns="http://www.opengis.net/sld"
+               xmlns:gml="http://www.opengis.net/gml"
+               xmlns:ogc="http://www.opengis.net/ogc"
+               version="1.0.0">
+                <sld:NamedLayer>
+                  <sld:Name>complex-mbstyles</sld:Name>
+                  <sld:UserStyle>
+                    <sld:Name>complex-mbstyles</sld:Name>
+                    <sld:FeatureTypeStyle>
+                      <sld:Name>polygon-outline</sld:Name>
+                      <sld:Title>MBStyle polygon-outline</sld:Title>
+                      <sld:Abstract>Generated for terrestris:bundeslaender</sld:Abstract>
+                      <sld:SemanticTypeIdentifier>POLYGON</sld:SemanticTypeIdentifier>
+                      <sld:Rule>
+                        <sld:Name>polygon-outline</sld:Name>
+                        <sld:PolygonSymbolizer uom="http://www.opengeospatial.org/se/units/pixel">
+                          <sld:Fill>
+                            <sld:CssParameter name="fill">
+                              <ogc:Function name="Categorize">
+                                <ogc:PropertyName>dense</ogc:PropertyName>
+                                <ogc:Literal>#1A9641</ogc:Literal>
+                                <ogc:Literal>0</ogc:Literal>
+                                <ogc:Literal>#1A9641</ogc:Literal>
+                                <ogc:Literal>133.2</ogc:Literal>
+                                <ogc:Literal>#A6D96A</ogc:Literal>
+                                <ogc:Literal>183.2</ogc:Literal>
+                                <ogc:Literal>#FFFFC0</ogc:Literal>
+                                <ogc:Literal>294.2</ogc:Literal>
+                                <ogc:Literal>#FDAE61</ogc:Literal>
+                                <ogc:Literal>524.5</ogc:Literal>
+                                <ogc:Literal>#D7191C</ogc:Literal>
+                                <ogc:Literal>succeeding</ogc:Literal>
+                              </ogc:Function>
+                            </sld:CssParameter>
+                            <sld:CssParameter name="fill-opacity">0.75</sld:CssParameter>
+                          </sld:Fill>
+                          <sld:Stroke>
+                            <sld:CssParameter name="stroke">#FFFFFF</sld:CssParameter>
+                            <sld:CssParameter name="stroke-opacity">0.75</sld:CssParameter>
+                          </sld:Stroke>
+                        </sld:PolygonSymbolizer>
+                      </sld:Rule>
+                    </sld:FeatureTypeStyle>
+                    <sld:FeatureTypeStyle>
+                      <sld:Name>bayern-spezial</sld:Name>
+                      <sld:Title>MBStyle bayern-spezial</sld:Title>
+                      <sld:Abstract>Generated for terrestris:bundeslaender</sld:Abstract>
+                      <sld:SemanticTypeIdentifier>POLYGON</sld:SemanticTypeIdentifier>
+                      <sld:Rule>
+                        <sld:Name>bayern-spezial</sld:Name>
+                        <ogc:Filter>
+                          <ogc:PropertyIsEqualTo>
+                            <ogc:PropertyName>GEN</ogc:PropertyName>
+                            <ogc:Literal>Bayern</ogc:Literal>
+                          </ogc:PropertyIsEqualTo>
+                        </ogc:Filter>
+                        <sld:PolygonSymbolizer uom="http://www.opengeospatial.org/se/units/pixel">
+                          <sld:Fill>
+                            <sld:CssParameter name="fill">#000000</sld:CssParameter>
+                          </sld:Fill>
+                          <sld:Stroke>
+                            <sld:CssParameter name="stroke">#FFFFFF</sld:CssParameter>
+                          </sld:Stroke>
+                        </sld:PolygonSymbolizer>
+                      </sld:Rule>
+                    </sld:FeatureTypeStyle>
+                    <sld:FeatureTypeStyle>
+                      <sld:Name>label</sld:Name>
+                      <sld:Title>MBStyle label</sld:Title>
+                      <sld:Abstract>Generated for terrestris:bundeslaender</sld:Abstract>
+                      <sld:SemanticTypeIdentifier>ANY</sld:SemanticTypeIdentifier>
+                      <sld:Rule>
+                        <sld:Name>label</sld:Name>
+                        <sld:TextSymbolizer uom="http://www.opengeospatial.org/se/units/pixel">
+                          <sld:Label>
+                            <ogc:Function name="StringTransform">
+                              <ogc:PropertyName>kuerzel</ogc:PropertyName>
+                              <ogc:Literal>none</ogc:Literal>
+                            </ogc:Function>
+                          </sld:Label>
+                          <sld:Font>
+                            <sld:CssParameter name="font-family">Dialog</sld:CssParameter>
+                            <sld:CssParameter name="font-size">14</sld:CssParameter>
+                            <sld:CssParameter name="font-style">normal</sld:CssParameter>
+                            <sld:CssParameter name="font-weight">normal</sld:CssParameter>
+                          </sld:Font>
+                          <sld:LabelPlacement>
+                            <sld:PointPlacement>
+                              <sld:AnchorPoint>
+                                <sld:AnchorPointX>0.5</sld:AnchorPointX>
+                                <sld:AnchorPointY>0.5</sld:AnchorPointY>
+                              </sld:AnchorPoint>
+                              <sld:Displacement>
+                                <sld:DisplacementX>0</sld:DisplacementX>
+                                <sld:DisplacementY>
+                                  <ogc:Mul>
+                                    <ogc:Literal>-1</ogc:Literal>
+                                    <ogc:Literal>0</ogc:Literal>
+                                  </ogc:Mul>
+                                </sld:DisplacementY>
+                              </sld:Displacement>
+                            </sld:PointPlacement>
+                          </sld:LabelPlacement>
+                          <sld:Halo>
+                            <sld:Radius>1</sld:Radius>
+                            <sld:Fill>
+                              <sld:CssParameter name="fill">#FFFFFF</sld:CssParameter>
+                            </sld:Fill>
+                          </sld:Halo>
+                          <sld:Fill>
+                            <sld:CssParameter name="fill" />
+                          </sld:Fill>
+                          <sld:VendorOption name="repeat">250</sld:VendorOption>
+                          <sld:VendorOption name="conflictResolution">true</sld:VendorOption>
+                          <sld:VendorOption name="graphic-resize">none</sld:VendorOption>
+                          <sld:VendorOption name="partials">true</sld:VendorOption>
+                          <sld:VendorOption name="graphic-margin">0</sld:VendorOption>
+                          <sld:VendorOption name="spaceAround">2.0</sld:VendorOption>
+                          <sld:VendorOption name="labelObstacle">true</sld:VendorOption>
+                        </sld:TextSymbolizer>
+                      </sld:Rule>
+                    </sld:FeatureTypeStyle>
+                  </sld:UserStyle>
+                </sld:NamedLayer>
+              </sld:StyledLayerDescriptor>
+            </code></pre>
+          </div>
+        </section>
+
+        <section id="ysld-example">
+          <h3>Bundesländer mit YSLD</h3>
+          <hr/>
+          <div>
+            <pre><code style="font-size:14px" data-trim>
+              TODO
+            </code></pre>
+          </div>
+        </section>
+
+        <section id="css-example">
+          <h3>Bundesländer mit CSS</h3>
+          <hr/>
+          <div>
+            <pre><code style="font-size:14px" data-trim>
+              * {
+                fill-opacity: 0.75;
+                stroke: #ffffff;
+                stroke-width: 1;
+                label: [kuerzel];
+                label-anchor: 0.5 0.5;
+                font-family: Dialog;
+                font-size: 14px;
+                font-fill: #333333;
+                halo-color: #ffffff;
+                halo-radius: 1;
+              }
+
+              [dense<133.2] {
+                fill: #1a9641;
+              }
+              [dense>=133.2] [dense<183.2] {
+                fill: #a6d96a;
+              }
+              [dense>=183.2] [dense<294.2] {
+                fill: #ffffc0;
+              }
+              [dense>=294.2] [dense<524.5] {
+                fill: #fdae61;
+              }
+              [dense>=524.5] {
+                fill: #d7191c;
+              }
+
+              [GEN='Bayern'] {
+                fill: #000000;
+                fill-opacity: 1;
+              }
+            </code></pre>
+          </div>
+        </section>
+
+        <section id="mbstyle-example">
+          <h3>Bundesländer mit MBStyle</h3>
+          <hr/>
+          <div>
+            <pre><code style="font-size:14px" data-trim>
+              {
+                "version": 8,
+                "name": "bundeslaender",
+                "sources": {
+                  "terrestris:bundeslaender" : {
+                    "type": "vector",
+                    "tiles": [
+                      "http://localhost:8080/geoserver/gwc/service/tms/1.0.0/terrestris:bundeslaender@EPSG%3A900913@pbf/{z}/{x}/{-y}.pbf"
+                    ]
+                  }
+                },
+                "layers": [
+                  {
+                    "id": "polygon-outline",
+                    "source": "terrestris:bundeslaender",
+                    "source-layer": "bundeslaender",
+                    "type": "fill",
+                    "paint": {
+                      "fill-color": {
+                        "property": "dense",
+                        "type": "interval",
+                        "stops": [
+                          [0, "#1a9641"],
+                          [133.2, "#a6d96a"],
+                          [183.2, "#ffffc0"],
+                          [294.2, "#fdae61"],
+                          [524.5, "#d7191c"]
+                        ]
+                      },
+                      "fill-outline-color": "white",
+                      "fill-opacity": 0.75
+                    }
+                  },
+                  {
+                    "id": "bayern-spezial",
+                    "source": "terrestris:bundeslaender",
+                    "source-layer": "bundeslaender",
+                    "filter": ["==", "GEN", "Bayern"],
+                    "type": "fill",
+                    "paint": {
+                      "fill-color": "black",
+                      "fill-outline-color": "white"
+                    }
+                  },
+                  {
+                    "id": "label",
+                    "source": "terrestris:bundeslaender",
+                    "source-layer": "bundeslaender",
+                    "type": "symbol",
+                    "layout": {
+                      "text-field": "{kuerzel}",
+                      "text-font": ["Dialog"],
+                      "text-size": 14,
+                      "text-anchor": "center"
+                    },
+                    "paint": {
+                      "text-color": "333333",
+                      "text-halo-color": "#ffffff",
+                      "text-halo-width": 1
+                    }
+                  }
+                ]
+              }
+            </code></pre>
+          </div>
+        </section>
+
         <section id="thanks-questions">
           <h4>Vielen Dank</h4>
           <hr />
