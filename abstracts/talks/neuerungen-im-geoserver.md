@@ -12,4 +12,4 @@ Dieser Vortrag widmet sich insbesondere den Entwicklungen der jüngeren Vergange
 
 ## Status
   * Submitted: Ja
-  * Angenommen: Nein
+  * Angenommen: Ja
