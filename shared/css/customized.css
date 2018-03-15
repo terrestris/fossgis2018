@@ -115,7 +115,8 @@ span.nope {
 
 .reveal section a.twitter,
 .reveal section a.github,
-.reveal section a.email {
+.reveal section a.email,
+.reveal section a.npm {
   display: inline;
   padding-left: 1.2em;
   background-repeat: no-repeat;
@@ -133,6 +134,11 @@ span.nope {
 
 .reveal section a.email {
   background-image: url("../img/mail-logo.png");
+}
+
+.reveal section a.npm {
+  background-image: url("../img/npm-logo.svg");
+    background-position: left 0.55em;
 }
 
 .reveal section .highlight {
@@ -217,4 +223,21 @@ span.nope {
 #teampic:hover {
   filter: none;
   opacity: 1;
+}
+
+.reveal ul ul.inline {
+  display: inline;
+  list-style: none;
+  margin-left: 0;
+}
+
+.reveal ul ul.inline li {
+  display: inline;
+}
+
+.reveal ul ul.inline li:after {
+  content: ", ";
+}
+.reveal ul ul.inline li:last-child:after {
+    content: "";
 }

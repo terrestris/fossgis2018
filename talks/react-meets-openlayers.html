@@ -71,8 +71,7 @@
           <ul>
             <li>Über&hellip;</li>
             <li>React &amp; OpenLayers</li>
-            <li>Kombinationen</li>
-            <li>Fokus: react-geo</li>
+            <li>react-geo</li>
             <li>Beispiele</li>
           </ul>
         </section>
@@ -91,7 +90,7 @@
               <div class="enumeration">
                 <ul>
                   <li>Diplom-Geograph</li>
-                  <li>Leiter der Entwicklung @terrestris</li>
+                  <li>Lead developer @terrestris</li>
                   <li>Kernentwickler react-geo</li>
                 </ul>
               </div>
@@ -199,64 +198,42 @@
             <li>OSGeo Projekt</li>
             <li>Deklarativ &amp; komponentenbasiert</li>
             <li>Virtual DOM & JSX</li>
-            <li>Seit 2013</li>
-            <li>FOSS, MIT-Lizenz</li>
+            <li>Seit 2006; v3.0.0 2014</li>
+            <li>FOSS, BSD-Lizenz</li>
         </section>
 
         <section>
-          <h1>Kombinationen</h1>
+          <h1>react-geo</h1>
         </section>
 
-
-
         <section>
-          <h2>MapStore2</h2>
+          <h2>react-geo</h2>
+          <blockquote lang="en" cite="https://github.com/terrestris/react-geo">
+            A set of geo related modules to use in combination with React, Ant Design and OpenLayers
+          </blockquote>
           <ul>
-            <li>https://github.com/geosolutions-it/MapStore2</li>
-            <li>Was ist das und warum nutzen wir das nicht?</li>
-            <li>kein <code>npm</code></li>
+            <li>Komponenten, <span lang="en">Utility</span> Klassen und <abbr lang="en" title="Higher-Order Components">HOCs</abbr></li>
+            <li>OpenLayers, React &amp; antd: latest stable</li>
+            <li>20 Releases seit 09/2017</li>
+            <li>FOSS, BSD-Lizenz</li>
+            <li>Inspiration: <ul class="inline">
+                <li><a href="https://github.com/geosolutions-it/MapStore2">MapStore2</a></li>
+                <li><a href="https://github.com/geosolutions-it/MapStore2">Boundless SDK</a></li>
+                <li><a href="https://github.com/pka/ol3-react-example">Pirmin Kalberers POC</a></li>
+                <li><a href="https://github.com/allenhwkim/react-openlayers">react-openlayers</a></li>
+              </ul>
+            </li>
           </ul>
-        </section>
-
-        <section>
-          <h2>Boundless SDK</h2>
-          <ul>
-            <li>https://github.com/geosolutions-it/MapStore2</li>
-            <li>Was ist das und warum nutzen wir das nicht?</li>
-            <li>npm: <code>@boundlessgeo/sdk</code></li>
-          </ul>
-        </section>
-
-        <section>
-          <h2>Pirmins POC</h2>
-          <ul>
-            <li>https://github.com/pka/ol3-react-example</li>
-            <li>Vorgestellt auf FOSS4G 2015, FOSSGIS 2016 (2015 vielleicht)</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2>react-openlayers</h2>
-          <ul>
-            <li>A minimal React wrapper of OpenLayers 3+ written in TypeScript</li>
-            <li>https://github.com/allenhwkim/react-openlayers</li>
-            <li>Verlinkt von https://openlayers.org/3rd-party/</li>
-          </ul>
-        </section>
-
-        <section>
-          <h1>Fokus: react-geo</h1>
         </section>
 
         <section>
           <h2>react-geo</h2>
           <ul>
-            <li>A set of geo related modules to use in combination with react, antd and OpenLayers</li>
-            <li>https://github.com/terrestris/react-geo</li>
-            <li>…</li>
+            <li><a href="https://terrestris.github.io/react-geo/">https://terrestris.github.io/react-geo/</a>            </li>
+            <li><a class="github" href="https://github.com/terrestris/react-geo">https://github.com/terrestris/react-geo</a></li>
+            <li><a class="npm" href="#">npm: @terrestris/react-geo</a></li>
           </ul>
         </section>
-
 
         <section>
           <h2>Exkurs: antd</h2>
@@ -382,6 +359,8 @@
       // - https://github.com/hakimel/reveal.js#configuration
       // - https://github.com/hakimel/reveal.js#dependencies
       Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
         dependencies: [
           { src: '../shared/reveal.js-3.6.0/plugin/markdown/marked.js' },
           { src: '../shared/reveal.js-3.6.0/plugin/markdown/markdown.js' },
