@@ -8,7 +8,7 @@
     <meta name="author" content="Marc Jansen">
     <meta name="author" content="terrestris GmbH &amp; Co. KG">
     <meta name="author" content="Andreas Hocevar">
-    <meta name="author" content=""> <!-- TODO AH: Such dir eine Company aus -->
+    <meta name="author" content="Boundless">
     <meta name="description" content="OpenLayers: Stand und Zukunft | Vortrag auf der FOSSGIS 2018, Bonn" />
 
     <!--[if lt IE 9]>
@@ -20,6 +20,7 @@
 
     <link href="https://fonts.googleapis.com/css?family=Inconsolata|Lato|Merriweather" rel="stylesheet">
     <link rel="stylesheet" href="../shared/css/customized.css" />
+    <link rel="stylesheet" href="../shared/css/animate.css" />
 
     <!-- Theme used for syntax highlighting of code -->
     <link rel="stylesheet" href="../shared/reveal.js-3.6.0/lib/css/zenburn.css">
@@ -34,6 +35,7 @@
           '../shared/reveal.js-3.6.0/css/print/paper.css';
       document.getElementsByTagName( 'head' )[0].appendChild( link );
     </script>
+    <script src="example-galore.js"></script>
   </head>
   <body>
 
@@ -59,7 +61,7 @@
             <small>Marc Jansen <br />terrestris GmbH &amp; Co. KG</small>
           </p>
           <p>
-            <small>Andreas Hocevar <br />TODO AH</small>
+            <small>Andreas Hocevar <br />Boundless</small>
           </p>
           <hr />
           <p>
@@ -188,6 +190,58 @@
           <div style="clear:both"></div>
         </section>
 
+        <section>
+          <h2>Was ist OpenLayers?</h2>
+          <blockquote>
+            A high-performance, feature-packed library for all your mapping
+            needs.
+            <footer>&mdash; <cite><a href="https://openlayers.org/">openlayers.org, 16. März 2018</a></cite></footer>
+          </blockquote>
+          <ul class="fragment">
+            <li>OpenSource (BSD)</li>
+            <li>JavaScript</li>
+            <li>OSGeo Projekt</li>
+          </ul>
+        </section>
+
+        <section id="example-galore">
+          <img class="stretch plain animated rollIn" src="../shared/img/ol-talk/https_openlayers.org_en_latest_examples_accessible.html.png" alt="">
+        </section>
+
+        <section>
+          <h2>OpenLayers</h2>
+          <ul>
+            <li>…lange Historie
+              <ul>
+                <li>v1.0.0, Mai 2006</li>
+                <li>v2.0.0, August 2006</li>
+                <li>v3.0.0, August 2014</li>
+                <li>v4.0.0, Februar 2017</li>
+                <li>seitdem <a href="https://semver.org/">Semantic Versioning</a></li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>OpenLayers</h2>
+          <ul>
+            <li>Viele Daten- &amp; Layerquellen</li>
+            <li>Interaktionen &amp; Steuerelemente</li>
+            <li>Aktiv entwickelt &amp; große Community</li>
+            <li>Gut dokumentiert &amp; viele Beispiele</li>
+            <li>Universal einsetzbar</li>
+          </ul>
+        </section>
+
+        <section>
+          https://github.com/openlayers/openlayers/compare/v4.0.1...v4.6.4
+        </section>
+
+        <section>
+          next? v5
+        </section>
+
         <section id="thanks-questions">
           <h4>Vielen Dank</h4>
           <hr />
@@ -265,6 +319,16 @@
           }
         ],
         history: true
+      });
+      Reveal.addEventListener('slidechanged', (evt) => {
+          const prev = evt.previousSlide || {};
+          const curr = evt.currentSlide || {};
+          if (prev.id === 'example-galore') {
+            stopExampleGalore();
+          }
+          if (curr.id === 'example-galore') {
+            startExampleGalore();
+          }
       });
     </script>
   </body>
