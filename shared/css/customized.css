@@ -241,3 +241,7 @@ span.nope {
 .reveal ul ul.inline li:last-child:after {
     content: "";
 }
+#components li code {
+  float: right;
+  padding-left: 2em;
+}
