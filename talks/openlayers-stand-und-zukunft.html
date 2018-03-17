@@ -72,7 +72,7 @@
         <section id="toc">
           <h2>Gliederung</h2>
           <ul>
-            <li>Über&hellip;</li>
+            <li>&uuml;ber&hellip;</li>
             <li>OpenLayers</li>
             <li>Stand</li>
             <li>Zukunft</li>
@@ -94,7 +94,7 @@
             <div class="part" style="width:60%">
               <div class="enumeration">
                 <ul>
-                  <li>Geschäftsführer @terrestris</li>
+                  <li>Gesch&auml;ftsf&uuml;hrer @terrestris</li>
                   <li>Kernentwickler OpenLayers</li>
                   <li>Kernentwickler GeoExt</li>
                   <li>Buchautor "OpenLayers"</li>
@@ -192,10 +192,10 @@
 
         <section>
           <h2>Was ist OpenLayers?</h2>
-          <blockquote>
+          <blockquote lang="en">
             A high-performance, feature-packed library for all your mapping
             needs.
-            <footer>&mdash; <cite><a href="https://openlayers.org/">openlayers.org, 16. März 2018</a></cite></footer>
+            <footer>&mdash; <cite><a href="https://openlayers.org/">openlayers.org, 16. M&auml;rz 2018</a></cite></footer>
           </blockquote>
           <ul class="fragment">
             <li>OpenSource (BSD)</li>
@@ -204,8 +204,19 @@
           </ul>
         </section>
 
+        <section>
+          <h2>OpenLayers</h2>
+          <ul>
+            <li>Viele Daten- &amp; Layerquellen</li>
+            <li>Interaktionen &amp; Steuerelemente</li>
+            <li>Aktiv entwickelt &amp; große Community</li>
+            <li>Gut dokumentiert &amp; viele Beispiele</li>
+            <li>Universal einsetzbar</li>
+          </ul>
+        </section>
+
         <section id="example-galore">
-          <img class="stretch plain animated rollIn" src="../shared/img/ol-talk/https_openlayers.org_en_latest_examples_accessible.html.png" alt="">
+          <img class="stretch plain animated rotateInUpLeft entering" src="../shared/img/ol-talk/https_openlayers.org_en_latest_examples_accessible.html.png" alt="">
         </section>
 
         <section>
@@ -224,22 +235,143 @@
         </section>
 
         <section>
-          <h2>OpenLayers</h2>
+            <h1>Stand</h1>
+        </section>
+
+        <section>
+            <h2>Stand</h2>
+            <ul>
+                <li>Aktuell: <span class="highlight">v4.6.4</span>, 03.01.2018</li>
+                <li>Letzte FOSSGIS: <span class="highlight">v4.0.1</span>, 14.02.2017</li>
+                <li>22 Releases</li>
+                <li>&gt; 1.300 Commits</li>
+                <li>&gt; 800 ge&auml;nderte Dateien</li>
+                <li><a href="https://github.com/openlayers/openlayers/compare/v4.0.1...v4.6.4">GitHub: compare/v4.0.1...v4.6.4</a></li>
+            </ul>
+        </section>
+
+        <section>
+          <img src="../shared/img/ol-talk/contributors-v4.0.1-v4.6.4.png" class="plain stretch">
+        </section>
+
+        <section>
+            <h1>Highlights</h1>
+        </section>
+
+        <section>
+          <h2>Take home:</h2>
+
+          <div class="fragment">
+            <pre><code data-trim class="bash">$ npm install ol</code></pre>
+            <pre><code data-trim class="bash">$ yarn add ol</code></pre>
+          </div>
+          <p class="fragment">Vor einem Jahr: Beta &amp; Obacht! <br><br> <strong class="highlight">Heute: Bitte nur so</strong></p>
+        </section>
+
+        <section>
+          <h2>Gradnetz-Labels</h2>
+          <img src="../shared/img/ol-talk/graticule.png" class="plain stretch">
+          <a class="pr-detail" href="https://github.com/openlayers/openlayers/pull/6737">PR #6737</a>
+        </section>
+
+        <section>
+          <h2>Kurvenförmige Label</h2>
+          <img src="../shared/img/ol-talk/text-along-lines.gif" class="plain stretch">
+          <a class="pr-detail" href="https://github.com/openlayers/openlayers/pull/7239">PR #7239</a>
+        </section>
+
+        <section>
+          <h2>Label <del>exceedLength</del> => overflow</h2>
+          <img src="../shared/img/ol-talk/overflow.gif" class="plain stretch">
+          <a class="pr-detail" href="https://github.com/openlayers/openlayers/pull/7292">PR #7292</a>
+        </section>
+
+        <section>
+          <h2>Texthintergrund</h2>
+          <img src="../shared/img/ol-talk/text-background.png" class="plain stretch">
+          <a class="pr-detail" href="https://github.com/openlayers/openlayers/pull/7454">PR #7454</a>
+        </section>
+
+        <section>
+          <h2>VectorTiles</h2>
+          <iframe src="https://openlayers.org/en/latest/examples/mapbox-vector-tiles-advanced.html" class="stretch"></iframe>
+        </section>
+
+        <section>
+          <h2>Labelkollision</h2>
+          <iframe src="https://codepen.io/anon/pen/eMdoOb?&editors=1010" class="stretch"></iframe>
+        </section>
+        <section>
+          <h2><code>declutter</code></h2>
+          <iframe src="https://codepen.io/anon/pen/mxroNr?&editors=1010" class="stretch"></iframe>
+        </section>
+
+        <section>
+          <h2>Deprecations</h2>
           <ul>
-            <li>Viele Daten- &amp; Layerquellen</li>
-            <li>Interaktionen &amp; Steuerelemente</li>
-            <li>Aktiv entwickelt &amp; große Community</li>
-            <li>Gut dokumentiert &amp; viele Beispiele</li>
-            <li>Universal einsetzbar</li>
+            <li>full-build</li>
+            <li><a href="https://www.npmjs.com/package/closure-util"><code>closure-util</code></a>-Paket</li>
+            <li><code>ol.source.ImageVector</code> (<code>renderMode: 'image'</code>)</li>
+            <li><code>ol.DeviceOrientation</code></li>
+            <li><code>ol.Attribution</code></li>
           </ul>
         </section>
 
         <section>
-          https://github.com/openlayers/openlayers/compare/v4.0.1...v4.6.4
+          <h2>Geistige Gesundheit</h2>
+
+          <pre><code data-trim class="javascript">
+          var source = new ol.source.XYZ({
+            attributions: [
+              new ol.Attribution({html: 'some attribution'})
+            ]
+          });
+          </code></pre>
+          <pre><code data-trim class="javascript">
+          var source = new ol.source.XYZ({
+            attributions: 'some attribution'
+          }); // oder Funktion (=> framestate)
+          </code></pre>
+
+          <pre><code data-trim class="javascript">
+          map.addLayer(layer);
+          map.addLayer(layer);
+          map.removeLayer(layer);
+          </code></pre>
         </section>
 
         <section>
-          next? v5
+          <h2>Sonstiges</h2>
+          <ul>
+            <li>Interaktivere <code>Overview-Control</code></li>
+            <li><code>insertVertexCondition</code> for Modify-Interaktion, Löschen mit Alt-Taste</li>
+            <li><code>movestart</code> / <code>moveTolerance</code> für <code>ol.Map</code></li>
+            <li><code>ol.animation</code> => (shortest path, no-ops, Kaskaden)</li>
+            <li><code>map.getFeaturesAtPixel()</code></li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>Zukunft</h1>
+        </section>
+
+        <section>
+          <h2>Zukunft</h2>
+          <ul>
+              <li>Aktuell: <span class="highlight">v4.6.4</span>, 03.01.2018</li>
+              <li><code>master</code>-Branch, 17.03.2018</li>
+              <li>&gt; 1.000 Commits</li>
+              <li>&gt; 950 ge&auml;nderte Dateien</li>
+              <li><a href="https://github.com/openlayers/openlayers/compare/v4.6.4...master">GitHub compare/v4.6.4...master</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <img src="../shared/img/ol-talk/contributors-v4.6.4-2018-03-17.png" class="plain stretch">
+        </section>
+
+        <section>
+          alles ab v4.6.4 inklusive Ausblick: TODO Andreas
         </section>
 
         <section id="thanks-questions">
@@ -261,7 +393,7 @@
               <strong>Marc Jansen</strong><br />
               <span style="font-size: smaller;">
                 terrestris GmbH &amp; Co. KG<br />
-                Kölnstr. 99, 53111 Bonn<br />
+                K&ouml;lnstr. 99, 53111 Bonn<br />
                 Germany<br />
                 jansen@terrestris.de
               </span>
@@ -283,7 +415,7 @@
           <p id="license">
             Diese Folien sind unter <a
             href="http://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA</a>
-            veröffentlicht.
+            ver&ouml;ffentlicht.
           </p>
           <p>
             <a href="https://rawgit.com/terrestris/fossgis2018/master/talks/karten-gestalten-im-geoserver.html">Vortragsfolien</a>,

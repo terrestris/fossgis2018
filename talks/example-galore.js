@@ -1,3 +1,4 @@
+const duration = 2200;
 const names = [
   'https_openlayers.org_en_latest_examples_accessible.html.png',
   'https_openlayers.org_en_latest_examples_animation.html.png',
@@ -161,53 +162,133 @@ const names = [
   'https_openlayers.org_en_latest_examples_zoomify.html.png',
   'https_openlayers.org_en_latest_examples_zoomslider.html.png'
 ];
-// function fisherYates( array ){
-//  var count = array.length,
-//      randomnumber,
-//      temp;
-//  while( count ){
-//   randomnumber = Math.random() * count-- | 0;
-//   temp = array[count];
-//   array[count] = array[randomnumber];
-//   array[randomnumber] = temp
-//  }
-//  return array
-// }
-// fisherYates(names);
+
+// Everyday I'm shuffelin'
+function fisherYates( array ){
+ var count = array.length,
+     randomnumber,
+     temp;
+ while( count ){
+  randomnumber = Math.random() * count-- | 0;
+  temp = array[count];
+  array[count] = array[randomnumber];
+  array[randomnumber] = temp
+ }
+ return array
+}
+fisherYates(names); // shuffle names
+
+const enterings = [
+  'bounceIn',
+  'bounceInDown',
+  'bounceInLeft',
+  'bounceInRight',
+  'bounceInUp',
+  'fadeIn',
+  'fadeInDown',
+  'fadeInDownBig',
+  'fadeInLeft',
+  'fadeInLeftBig',
+  'fadeInRight',
+  'fadeInRightBig',
+  'fadeInUp',
+  'fadeInUpBig',
+  'flipInX',
+  'flipInY',
+  'lightSpeedIn',
+  'rotateIn',
+  'rotateInDownLeft',
+  'rotateInDownRight',
+  'rotateInUpLeft',
+  'rotateInUpRight',
+  'slideInUp',
+  'slideInDown',
+  'slideInLeft',
+  'slideInRight',
+  'zoomIn',
+  'zoomInDown',
+  'zoomInLeft',
+  'zoomInRight',
+  'zoomInUp',
+  'rollin'
+];
+const exits = [
+  'bounceOut',
+  'bounceOutDown',
+  'bounceOutLeft',
+  'bounceOutRight',
+  'bounceOutUp',
+  'fadeOut',
+  'fadeOutDown',
+  'fadeOutDownBig',
+  'fadeOutLeft',
+  'fadeOutLeftBig',
+  'fadeOutRight',
+  'fadeOutRightBig',
+  'fadeOutUp',
+  'fadeOutUpBig',
+  'flipOutX',
+  'flipOutY',
+  'lightSpeedOut',
+  'rotateOut',
+  'rotateOutDownLeft',
+  'rotateOutDownRight',
+  'rotateOutUpLeft',
+  'rotateOutUpRight',
+  'slideOutUp',
+  'slideOutDown',
+  'slideOutLeft',
+  'slideOutRight',
+  'zoomOut',
+  'zoomOutDown',
+  'zoomOutLeft',
+  'zoomOutRight',
+  'zoomOutUp',
+  'rollout',
+  'hinge'
+];
+
+const randomEnter = () => enterings[Math.floor(enterings.length * Math.random())];
+const randomExit = () => exits[Math.floor(exits.length * Math.random())];
+
+// Make inages so they are preloaded
 const imgs = names.map((name) => {
   var img = new Image();
   img.src = '../shared/img/ol-talk/' + name;
   return img;
 });
 const numImgs = imgs.length;
-const duration = 2800;
 
 var setUrlInterval = null;
 var animateInterval = null;
 function stopExampleGalore() {
   if (setUrlInterval) {
-    window.clearInterval(setUrlInterval);
+    clearInterval(setUrlInterval);
   }
   if (animateInterval) {
-    window.clearInterval(animateInterval);
+    clearInterval(animateInterval);
   }
 }
+
+const alwaysClasses = 'stretch plain animated';
+const basePath = '../shared/img/ol-talk/';
+
 function startExampleGalore() {
   stopExampleGalore();
   var container = document.getElementById('example-galore');
   var imgElem = container.querySelector('img')
 
   var imgIdx = 0;
-  setUrlInterval = window.setInterval(() => {
+  setUrlInterval = setInterval(() => {
     imgIdx++;
     if (imgIdx >= numImgs) {
       imgIdx = 0;
     }
-    imgElem.src = '../shared/img/ol-talk/' + names[imgIdx];
+    imgElem.src = basePath + names[imgIdx];
   }, duration);
-  animateInterval = window.setInterval(() => {
-    imgElem.className = imgElem.className === 'stretch plain animated rollOut'
-      ? 'stretch plain animated rollIn'
-      : 'stretch plain animated rollOut'
+  animateInterval = setInterval(() => {
+    imgElem.className = (/entering/gi).test(imgElem.className)
+      ? alwaysClasses + ' exiting ' + randomExit()
+      : alwaysClasses + ' entering ' + randomEnter();
   }, duration/2);
 }

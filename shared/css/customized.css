@@ -245,3 +245,8 @@ span.nope {
   float: right;
   padding-left: 2em;
 }
+.reveal section a.pr-detail {
+  position: absolute;
+  bottom: 0;
+  right: 1em;
+}
