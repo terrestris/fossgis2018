@@ -7,6 +7,7 @@ Materialien für die FOSSGIS 2018 Konferenz in Bonn.
 * Nils Bühner: [Neuerungen im GeoServer (Folien)](https://rawgit.com/terrestris/fossgis2018/master/talks/neuerungen-im-geoserver.html), [PDF](https://rawgit.com/terrestris/fossgis2018/master/talks/neuerungen-im-geoserver.pdf)
 * Johannes Weskamm: [Karten gestalten im GeoServer: SLD, CSS und MBStyles (Folien)](https://rawgit.com/terrestris/fossgis2018/master/talks/karten-gestalten-im-geoserver.html), [PDF](https://rawgit.com/terrestris/fossgis2018/master/talks/karten-gestalten-im-geoserver.pdf)
 * Daniel Koch & Marc Jansen: [React meets OpenLayers: Vorstellung von und Anwendungsbeispiel mit react-geo (Folien)](https://rawgit.com/terrestris/fossgis2018/master/talks/react-meets-openlayers.html), [PDF](https://rawgit.com/terrestris/fossgis2018/master/talks/react-meets-openlayers.pdf)
+* Marc Jansen & Andreas Hocevar: [OpenLayers: Stand und Zukunft](https://rawgit.com/terrestris/fossgis2018/master/talks/openlayers-stand-und-zukunft.html), PDF TODO 
 
 ## Termine
 
