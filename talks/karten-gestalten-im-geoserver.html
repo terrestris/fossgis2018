@@ -160,6 +160,7 @@
         </section>
 
         <section id="geoserver-styling-docker-setup">
+          <h4>GeoServer Docker zum selbst probieren</h3>
           <pre><code data-trim>
           $ cd /tmp && \
             git clone git@github.com:terrestris/docker-geoserver.git && \
@@ -167,9 +168,10 @@
             git checkout styling-examples && \
             docker build -t terrestris/geoserver:styling --no-cache . && \
             docker run -d -p 8080:8080 terrestris/geoserver:styling
-          </code></pre>
-          <a href="http://localhost:8080/geoserver">http://localhost:8080/geoserver</a><br />
-          <a href="http://localhost:8080/geoserver/www/all.html">Alle 4 zusammen</a>
+          </code></pre><br>
+          <a href="http://localhost:8080/geoserver">Lokaler GeoServer: http://localhost:8080/geoserver</a><br />
+          <a href="http://localhost:8080/geoserver/www/all.html">Lokales Beispiel: Alle 4 zusammen</a><br />
+          <a href="http://ows.terrestris.de/geoserver/www/all.html">Online Beispiel: Alle 4 zusammen</a>
         </section>
 
         <section id="how-to-style-maps-title">
@@ -520,16 +522,6 @@
           </div>
         </section>
 
-        <section id="ysld-example">
-          <h3>Bundesländer mit YSLD</h3>
-          <hr/>
-          <div>
-            <pre><code style="font-size:14px" data-trim>
-              TODO
-            </code></pre>
-          </div>
-        </section>
-
         <section id="css-example">
           <h3>Bundesländer mit CSS</h3>
           <hr/>
@@ -644,7 +636,12 @@
           </div>
         </section>
 
-        <section id="comparision">
+        <section id="comparision1">
+          <h3>Ergebnisse</h3>
+          <img src="../shared/img/style-talk/all.png" class="plain" width="100%"/><br />
+        </section>
+
+        <section id="comparision2">
           <h3>Ergebnisse</h3>
           <hr/>
           <div class="split-info">
@@ -673,16 +670,6 @@
                   </td>
                 </tr>
                 <tr>
-                  <td>YSLD</td>
-                  <td>TODO</td>
-                  <td>
-                    <ul>
-                      <li>TODO</li>
-                      <li>TODO</li>
-                    </ul>
-                  </td>
-                </tr>
-                <tr>
                   <td style="vertical-align:middle;">CSS</td>
                   <td style="vertical-align:middle;">33</td>
                   <td>
@@ -707,6 +694,35 @@
             </div>
           </div>
           <div style="clear:both"></div>
+        </section>
+
+        <section id="comparision3">
+          <h3>Ergebnisse</h3>
+          <img src="../shared/img/style-talk/all_rotate.png" class="plain" width="100%"/><br />
+        </section>
+
+        <section id="documentation">
+          <h3>Dokumentation</h3>
+          <a href="http://docs.geoserver.org/latest/en/user/styling/css/index.html">CSS</a><br>
+          <a href="http://docs.geoserver.org/stable/en/user/styling/mbstyle/index.html">MBStyle</a><br>
+          <a href="http://docs.geoserver.org/latest/en/user/styling/ysld/index.html">YSLD</a><br>
+          <a href="http://docs.geoserver.org/stable/en/user/styling/sld/cookbook/">SLD Cookbook</a>
+        </section>
+
+        <section id="editors1">
+          <h3>Editoren - GeoServer</h3>
+          <img src="../shared/img/style-talk/geoserver_style_editor.png" class="plain" width="85%"/><br />
+        </section>
+
+        <section id="editors2">
+          <h3>Editoren - GeoServer</h3>
+          <img src="../shared/img/style-talk/geoserver_style_editor2.png" class="plain" width="85%"/>
+        </section>
+
+        <section id="editors2">
+          <h3>Editoren - Maputnik (MBStyle)</h3>
+          <img src="../shared/img/style-talk/maputnik.png" class="plain" width="100%"/><br />
+          <a href="https://maputnik.github.io/editor/">https://maputnik.github.io/editor/</a>
         </section>
 
         <section id="thanks-questions">
