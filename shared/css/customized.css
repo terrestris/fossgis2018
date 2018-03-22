@@ -245,6 +245,10 @@ span.nope {
   float: right;
   padding-left: 2em;
 }
+#utilities li code {
+  float: right;
+  padding-left: 2em;
+}
 .reveal section a.pr-detail {
   position: absolute;
   bottom: 0;
